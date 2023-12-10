@@ -1,3 +1,15 @@
+# IPSec
+### What is IPSec
+IPsec stands for **Internet Protocol Security**. It is a group of protocols that provides secure communication between devices by encrypting and authenticating data sent over public networks, such as the Internet. IPsec is often used to set up VPNs (Virtual Private Networks). It works by encrypting IP packets and authenticating the source where the packets come from. IPsec uses UDP as its transport protocol, which allows it to get through firewalls. 
+
+### What is L2L IPSec
+L2L IPSec stands for **LAN-to-LAN IPsec**. It is a type of VPN connection that allows two or more private networks to securely communicate with each other over the public internet. This type of VPN is commonly used by businesses to connect remote offices or to allow employees to work from home securely. The connection is established between two routers, and the data is encrypted using the IPsec protocol.
+
+
+
+[ref](https://www.cisco.com/c/en/us/support/docs/routers/1700-series-modular-access-routers/71462-rtr-l2l-ipsec-split.html)
+# LAN 2 LAN [L2L] IPSec setup
+
 ![img](img/1.png)
 
 
@@ -106,8 +118,7 @@ Crypto Traffic or Interesting Traffic
 
 
 
-
-# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# L2L Through a firewall
 # Site2    to   Site3
 
 
