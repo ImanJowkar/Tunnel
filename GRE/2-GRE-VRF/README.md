@@ -8,8 +8,6 @@
 # R2
 
 ```
-
-
 ip vrf lan-a
 exit
 
@@ -60,7 +58,7 @@ ip addr 192.168.87.1 255.255.255.252
 ip mtu 1400
 ip tcp adjust-mss 1360
 
-
+ip route vrf lan-b 10.10.4.0 255.255.255.0 192.168.87.2
 
 
 ```
@@ -119,20 +117,6 @@ router eigrp 1
 network 10.10.34.4 0.0.0.0
 
 
-
-int tunnel 1
-ip vrf forwarding lan-a
-tunnel key 1
-tunnel source 10.10.34.4 
-tunnel destin 10.10.23.2 
-ip addr 10.10.10.2 255.255.255.252
-ip mtu 1400
-ip tcp adjust-mss 1360
-
-
-ip route vrf lan-a 10.10.44.0 255.255.255.0 10.10.10.2
-
-
 int tunnel 1
 ip vrf forwarding lan-a
 tunnel key 1
@@ -154,7 +138,7 @@ ip addr 192.168.87.2 255.255.255.252
 ip mtu 1400
 ip tcp adjust-mss 1360
 
-
+ip route vrf lan-b 10.10.2.0 255.255.255.0 192.168.87.1
 
 
 ```
