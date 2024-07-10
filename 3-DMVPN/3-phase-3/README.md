@@ -1,6 +1,7 @@
-# DMVPN Phase 1
+# DMVPN Phase 3
 
-each spoke talk to each other with HQ-Router(HUB)
+
+each spoke can talk to each other directly
 
 ![img](img/1.png)
 
@@ -131,6 +132,7 @@ ip nhrp network-id 1
 ip nhrp map multicast dynamic
 tunnel source 10.10.38.8
 tunnel mode gre multipoint
+ip nhrp redirect
 ip mtu 1400
 ip tcp adjust-mss 1360
 
@@ -147,6 +149,10 @@ ip route 10.10.5.0 255.255.255.0 172.16.1.5
 ip route 10.10.6.0 255.255.255.0 172.16.1.6
 ip route 10.10.7.0 255.255.255.0 172.16.1.7
 
+
+
+
+do sh dmvpn
 
 ```
 
@@ -170,7 +176,8 @@ ip nhrp nhs 172.16.1.8
 ip nhrp map 172.16.1.8 10.10.38.8
 ip nhrp map multicast 10.10.38.8
 tunnel source 10.10.45.5
-tunnel destin 10.10.38.8
+tunnel mode gre multipoint
+ip nhrp shorcut
 ip mtu 1400
 ip tcp adjust-mss 1360
 
@@ -184,6 +191,8 @@ ip route 10.10.6.0 255.255.255.0 172.16.1.8
 ip route 10.10.8.0 255.255.255.0 172.16.1.8
 
 
+do sh ip route
+do sh dmvpn
 
 ```
 
@@ -207,13 +216,14 @@ ip nhrp nhs 172.16.1.8
 ip nhrp map 172.16.1.8 10.10.38.8
 ip nhrp map multicast 10.10.38.8
 tunnel source 10.10.46.6
-tunnel destin 10.10.38.8
+tunnel mode gre multipoint
+ip nhrp shorcut
 ip mtu 1400
 ip tcp adjust-mss 1360
 
 
-
-
+do sh ip route
+do sh dmvpn
 
 ```
 
@@ -237,7 +247,8 @@ ip nhrp authentication secret
 ip nhrp network-id 1
 ip nhrp nhs 172.16.1.8 nbma 10.10.38.8 multicast
 tunnel source 10.10.27.7
-tunnel destin 10.10.38.8
+tunnel mode gre multipoint
+ip nhrp shorcut
 ip mtu 1400
 ip tcp adjust-mss 1360
 
@@ -252,6 +263,8 @@ ip route 10.10.6.0 255.255.255.0 172.16.1.8
 ip route 10.10.8.0 255.255.255.0 172.16.1.8
 
 
+do sh ip route
+do sh dmvpn
 
 
 ```
